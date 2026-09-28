@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Floresta das Letras Mágicas – E-book infantil</title>
+<style>
+:root{--bg:#FFF6DC;--ink:#2B2340;--orange:#F0602E;--green:#2E9E5B;--blue:#2F86B0;--pink:#EC4174;--card:#fff;--soft:#FFE6BE;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1F1A33;--ink:#FFF3D9;--card:#2C2547;--soft:#3A3160}}
+:root[data-theme="dark"]{--bg:#1F1A33;--ink:#FFF3D9;--card:#2C2547;--soft:#3A3160}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Baloo 2","Trebuchet MS","Segoe UI",sans-serif;font-size:18px;line-height:1.5;overflow-x:hidden}
+h1,h2,h3{font-family:"Fredoka","Baloo 2","Trebuchet MS",sans-serif;line-height:1.1;margin:0}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+section{padding:54px 0}
+h2{font-size:clamp(28px,5vw,42px);text-align:center;margin-bottom:28px}
+
+/* HERO */
+.hero{background:linear-gradient(180deg,#FFD97A,#FFE9B8 60%,var(--bg));text-align:center;padding:40px 0 30px;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(38px,9vw,74px);color:var(--orange);text-shadow:3px 3px 0 #fff8}
+.hero p.sub{font-size:clamp(18px,3vw,24px);margin:14px auto 0;max-width:600px;color:#3b2f57}
+.float{position:absolute;font-size:clamp(28px,6vw,52px);animation:fl 5s ease-in-out infinite;opacity:.9}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-22px) rotate(8deg)}}
+.parade{display:flex;justify-content:center;gap:clamp(4px,2vw,16px);margin:30px 0 10px;flex-wrap:wrap}
+.pet{width:clamp(62px,14vw,112px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font-size:clamp(34px,8vw,64px);box-shadow:0 8px 0 #0002;animation:hop 1.6s ease-in-out infinite}
+.pet:nth-child(1){background:#F3EFE8}.pet:nth-child(2){background:#F2B04E;animation-delay:.15s}.pet:nth-child(3){background:#7CC24A;animation-delay:.3s}.pet:nth-child(4){background:#B27A4E;animation-delay:.45s}.pet:nth-child(5){background:#A0A8B4;animation-delay:.6s}.pet:nth-child(6){background:#F5C842;animation-delay:.75s}.pet:nth-child(7){background:#E8533B;animation-delay:.9s}
+@keyframes hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-18px) scale(1.05)}}
+.badge{display:inline-block;background:var(--pink);color:#fff;border-radius:999px;padding:6px 18px;font-weight:700;font-size:16px;transform:rotate(-2deg);margin-bottom:14px}
+
+/* PRICE + CTA */
+.price{margin:22px 0 6px;font-family:"Fredoka",sans-serif}
+.price s{opacity:.55;font-size:24px}
+.price b{font-size:clamp(50px,11vw,84px);color:var(--green);display:block;line-height:1}
+.price span{font-size:18px;font-weight:600}
+.cta{display:inline-block;background:linear-gradient(180deg,#3DC46F,#22964F);color:#fff;text-decoration:none;font-family:"Fredoka",sans-serif;font-size:clamp(22px,5vw,30px);font-weight:700;padding:16px 38px;border-radius:999px;box-shadow:0 7px 0 #157238,0 14px 28px #0003;animation:pulse 1.8s ease-in-out infinite;transition:transform .15s}
+.cta:hover{transform:translateY(3px);box-shadow:0 4px 0 #157238}
+.cta:focus-visible{outline:4px solid var(--blue);outline-offset:4px}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.safe{font-size:15px;margin-top:14px;opacity:.85}
+
+/* BOOK PAGES MOCK */
+.pages{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.pg{background:var(--card);border-radius:22px;padding:18px;border:5px solid var(--c);text-align:center;transition:transform .3s}
+.pg:hover{transform:rotate(-2deg) scale(1.04)}
+.pg .big{font-size:56px;display:block;animation:hop 2.2s infinite}
+.pg h3{color:var(--c);font-size:22px;margin:8px 0}
+.pg p{margin:0;font-size:16px}
+.letters{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:8px}
+.letters i{font-style:normal;font-family:"Fredoka",sans-serif;font-weight:700;font-size:28px;width:48px;height:56px;display:grid;place-items:center;border-radius:12px;color:#fff;animation:hop 1.4s infinite}
+.letters i:nth-child(1){background:var(--orange)}.letters i:nth-child(2){background:var(--blue);animation-delay:.1s}.letters i:nth-child(3){background:#D89A00;animation-delay:.2s}.letters i:nth-child(4){background:var(--green);animation-delay:.3s}.letters i:nth-child(5){background:#8E5BD0;animation-delay:.4s}
+
+/* BENEFITS */
+.ben{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.ben div{background:var(--soft);border-radius:20px;padding:20px;display:flex;gap:14px;align-items:flex-start}
+.ben em{font-style:normal;font-size:38px}
+.ben strong{display:block;font-family:"Fredoka",sans-serif;font-size:20px}
+.ben small{font-size:16px}
+
+/* MARQUEE */
+.mq{overflow:hidden;background:var(--orange);color:#fff;padding:12px 0;font-family:"Fredoka",sans-serif;font-size:22px;white-space:nowrap}
+.mq div{display:inline-block;animation:mq 22s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* OFFER */
+.offer{background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff;text-align:center;border-radius:36px;padding:42px 22px;box-shadow:0 12px 0 #0003}
+.offer h2{margin-bottom:10px}
+.offer ul{list-style:none;padding:0;margin:18px auto;max-width:420px;text-align:left}
+.offer li{padding:5px 0;font-size:19px}
+.offer .price b{color:#fff}
+.offer .cta{background:linear-gradient(180deg,#FFE066,#F5B800);color:#3b2a00;box-shadow:0 7px 0 #a37800,0 14px 28px #0004}
+.faq details{background:var(--card);border-radius:16px;padding:14px 18px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:700}
+.faq p{margin:8px 0 0;font-size:16px}
+footer{text-align:center;padding:26px 20px 100px;font-size:14px;opacity:.75}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:var(--card);box-shadow:0 -6px 20px #0003;display:flex;justify-content:space-between;align-items:center;gap:10px;z-index:9}
+.sticky b{font-family:"Fredoka",sans-serif;font-size:22px;color:var(--green)}
+.sticky .cta{font-size:19px;padding:10px 24px;box-shadow:0 4px 0 #157238;animation:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="float" style="left:5%;top:14%">⭐</span><span class="float" style="right:6%;top:10%;animation-delay:.8s">✨</span>
+  <span class="float" style="left:10%;top:60%;animation-delay:1.4s">🦋</span><span class="float" style="right:9%;top:55%;animation-delay:2s">📚</span>
+  <div class="wrap">
+    <span class="badge">📖 E-book infantil · Aprender a ler</span>
+    <h1>A Floresta das Letras Mágicas</h1>
+    <p class="sub">15 histórias divertidas com animais amigos que ensinam o seu filho a ler, do abecedário às primeiras frases.</p>
+    <div class="parade" aria-hidden="true"><div class="pet">🐰</div><div class="pet">🦁</div><div class="pet">🐢</div><div class="pet">🐒</div><div class="pet">🐘</div><div class="pet">🦒</div><div class="pet">🦜</div></div>
+    <div class="price"><s>100 MT</s><b>50 MT</b><span>Pagamento único · Acesso imediato</span></div>
+    <a class="cta" href="https://checkout.escalepay.com/7368626">Compre agora</a>
+    <p class="safe">🔒 Compra segura · 64 páginas em PDF</p>
+  </div>
+</header>
+
+<div class="mq" aria-hidden="true"><div>🐰 Coelho &nbsp;•&nbsp; 🦁 Leão &nbsp;•&nbsp; 🐢 Tartaruga &nbsp;•&nbsp; 🐒 Macaco &nbsp;•&nbsp; 🐘 Elefante &nbsp;•&nbsp; 🦒 Girafa &nbsp;•&nbsp; 🦜 Papagaio &nbsp;•&nbsp; 🐶 Cachorro &nbsp;•&nbsp; 🐱 Gato &nbsp;•&nbsp; 🐸 Sapo &nbsp;•&nbsp; 🦓 Zebra &nbsp;•&nbsp; 🐝 Abelha &nbsp;•&nbsp; 🦊 Raposa &nbsp;•&nbsp; 🐦 Passarinho &nbsp;•&nbsp;
+🐰 Coelho &nbsp;•&nbsp; 🦁 Leão &nbsp;•&nbsp; 🐢 Tartaruga &nbsp;•&nbsp; 🐒 Macaco &nbsp;•&nbsp; 🐘 Elefante &nbsp;•&nbsp; 🦒 Girafa &nbsp;•&nbsp; 🦜 Papagaio &nbsp;•&nbsp; 🐶 Cachorro &nbsp;•&nbsp; 🐱 Gato &nbsp;•&nbsp; 🐸 Sapo &nbsp;•&nbsp; 🦓 Zebra &nbsp;•&nbsp; 🐝 Abelha &nbsp;•&nbsp; 🦊 Raposa &nbsp;•&nbsp; 🐦 Passarinho &nbsp;•&nbsp;</div></div>
+
+<section>
+  <div class="wrap">
+    <h2>O que a criança vai aprender</h2>
+    <div class="letters" aria-label="Vogais A E I O U"><i>A</i><i>E</i><i>I</i><i>O</i><i>U</i></div>
+    <div class="pages" style="margin-top:30px">
+      <div class="pg" style="--c:var(--orange)"><span class="big">🔤</span><h3>Abecedário</h3><p>26 letras com figuras e palavras para repetir em voz alta.</p></div>
+      <div class="pg" style="--c:var(--blue)"><span class="big">🧩</span><h3>Sílabas</h3><p>BA, BE, BI, BO, BU… e jogos para juntar sílabas e formar palavras.</p></div>
+      <div class="pg" style="--c:var(--green)"><span class="big">📖</span><h3>15 histórias</h3><p>Textos curtos, palavras-chave coloridas e uma pequena lição em cada uma.</p></div>
+      <div class="pg" style="--c:var(--pink)"><span class="big">✏️</span><h3>Escrita</h3><p>Páginas para copiar letras, palavras e frases, e escrever a sua própria.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--soft)">
+  <div class="wrap">
+    <h2>Conheça alguns amigos da floresta</h2>
+    <div class="pages">
+      <div class="pg" style="--c:var(--orange)"><span class="big">🐰</span><h3>O Coelho e a Cenoura Gigante</h3><p>Juntos somos mais fortes.</p></div>
+      <div class="pg" style="--c:var(--blue)"><span class="big">🦁</span><h3>O Leão que Tinha Medo</h3><p>Enfrentar o medo faz-nos corajosos.</p></div>
+      <div class="pg" style="--c:#D89A00"><span class="big">🐢</span><h3>A Tartaruga e a Corrida</h3><p>Com esforço, sem desistir, chegamos lá.</p></div>
+      <div class="pg" style="--c:#8E5BD0"><span class="big">🦓</span><h3>A Zebra Diferente</h3><p>Ser diferente é bonito. Todos merecem respeito.</p></div>
+    </div>
+    <p style="text-align:center;margin-top:22px;font-weight:700">…e mais 11 histórias para ler todos os dias!</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Porque pais e professores adoram</h2>
+    <div class="ben">
+      <div><em>👀</em><span><strong>Letras grandes e claras</strong><small>Fáceis de seguir com o dedo.</small></span></div>
+      <div><em>🎨</em><span><strong>Cores e personagens fofos</strong><small>Prende a atenção da criança.</small></span></div>
+      <div><em>💡</em><span><strong>Valores em cada história</strong><small>Amizade, coragem, partilha e respeito.</small></span></div>
+      <div><em>❓</em><span><strong>Perguntas de compreensão</strong><small>“Vamos pensar?” depois de cada conto.</small></span></div>
+      <div><em>📱</em><span><strong>Leia no telemóvel ou imprima</strong><small>Formato PDF, use quando e onde quiser.</small></span></div>
+      <div><em>⚡</em><span><strong>Acesso imediato</strong><small>Pague e comece a ler hoje.</small></span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="offer">
+      <h2>Oferta especial para si 🎁</h2>
+      <p>O primeiro livro do seu filho pelo preço de um lanche.</p>
+      <ul><li>✅ 15 histórias ilustradas</li><li>✅ Abecedário, vogais e sílabas</li><li>✅ Exercícios de leitura e escrita</li><li>✅ Diploma final de leitor</li></ul>
+      <div class="price"><s style="color:#fff">100 MT</s><b>50 MT</b></div>
+      <a class="cta" href="https://checkout.escalepay.com/7368626">Compre agora</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2>Perguntas frequentes</h2>
+    <details><summary>Para que idade é indicado?</summary><p>Para crianças que estão a começar a ler, normalmente dos 4 aos 8 anos, com ajuda de pais ou professores.</p></details>
+    <details><summary>Em que formato recebo o livro?</summary><p>Em PDF, com 64 páginas. Pode ler no telemóvel, tablet, computador ou imprimir.</p></details>
+    <details><summary>Quando recebo?</summary><p>Logo após a confirmação do pagamento.</p></details>
+    <details><summary>O idioma é português?</summary><p>Sim, todo o conteúdo está em português.</p></details>
+  </div>
+</section>
+
+<footer>© A Floresta das Letras Mágicas · Todos os direitos reservados</footer>
+
+<div class="sticky"><div><b>50 MT</b><br><small>E-book completo</small></div><a class="cta" href="https://checkout.escalepay.com/7368626">Compre agora</a></div>
+</body>
+</html>
